@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Control Orang Tua</title>
+
+<link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+
+<style>
+
+/* Resetting default browser styles */
+
+* {
+
+margin: 0;
+
+padding: 0;
+
+box-sizing: border-box;
+
+}
+
+
+/* Body styling */
+
+body {
+
+font-family: Arial, sans-serif;
+
+background-color: green;
+
+display: flex;
+
+justify-content: center;
+
+align-items: center;
+
+height: 100vh;
+
+}
+
+
+/* Container untuk form login */
+
+.login-container {
+
+background: rgba(255, 255, 255, 0.8); /* Background transparan untuk form */
+
+padding: 30px;
+
+border-radius: 10px;
+
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+width: 300px;
+
+text-align: center;
+
+}
+
+
+/* Styling form dan input */
+
+.input-container {
+
+margin-bottom: 15px;
+
+text-align: left;
+
+}
+
+
+.input-container label {
+
+display: block;
+
+margin-bottom: 5px;
+
+font-size: 14px;
+
+color: #555;
+
+}
+
+
+.input-container input {
+
+width: 100%;
+
+padding: 10px;
+
+font-size: 14px;
+
+border: 1px solid #ddd;
+
+border-radius: 5px;
+
+outline: none;
+
+}
+
+
+.input-container input:focus {
+
+border-color: #66cc33;
+
+}
+
+
+/* Button styling */
+
+button {
+
+width: 100%;
+
+padding: 10px;
+
+background-color: green;
+
+color: white;
+
+border: none;
+
+border-radius: 5px;
+
+font-size: 16px;
+
+cursor: pointer;
+
+margin-bottom: 20px;
+
+}
+
+
+button:hover {
+
+background-color: #4CAF50;
+
+}
+
+img {
+
+width: 100px;
+
+}
+
+
+
+</style>
+
+</head>
+
+<body>
+
+<div class="login-container">
+
+<img src="attaqwa07.png" alt="">
+
+<form id="login-form">
+
+<div class="input-container">
+
+<label for="username">Username</label>
+
+<input type="text" id="mts07" name="username" placeholder="masukan username" required>
+
+</div>
+
+<div class="input-container">
+
+<label for="password">Password</label>
+
+<input type="text" id="0354" name="password" placeholder="masukan password" required>
+
+</div>
+
+<button type="submit">Buka</button> <br>
+
+</form>
+
+</div>
+
+
+<script>
+
+document.getElementById('login-form').addEventListener('submit', function(e) {
+
+e.preventDefault(); // Menghindari refresh halaman saat submit form
+
+
+const username = document.getElementById('mts07').value;
+
+const password = document.getElementById('0354').value;
+
+
+// Validasi sederhana
+
+if (username === '' || password === '') {
+
+alert('Harap isi semua kolom!');
+
+} else {
+
+// Jika login berhasil, alihkan ke halaman dashboard
+
+window.location.href = "https://chatgpt.com"; // Ganti dengan alamat halaman tujuan
+
+}
+
+});
+
+
+</script>
+
+</body>
+
+</html>
+
+
