@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+    <style>
+        body {
+            background: green;
+            padding: 10px;
+        }
+        #countdown {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .countdown-blocks {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .time-block {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #ddd;
+            padding: 16px;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .time-block:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .time-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 0.25rem;
+        }
+
+        .time-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #000;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin: 0;
+        }
+        p {
+            color: white;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 16px;
+            text-transform: uppercase;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="countdown">
+        <div class="countdown-blocks"></div>
+    </div>
+   <p>Masa berakhir Website</p>
+    
+    <script>
+        // Using the existing launch date from your code
+    const launchDate = new Date(2026, 10, 10, 0, 0, 0); // YYYY, MM (0-based), DD, HH, MM, SS
+    const countdownElement = document.querySelector(".countdown-blocks");
+    
+    // Your existing createBlock function
+    const createBlock = (label, value) => {
+        const block = document.createElement("div");
+        block.className = "time-block";
+    
+        const valueEl = document.createElement("span");
+        valueEl.className = "time-value";
+        // Add leading zeros for single-digit values
+        valueEl.textContent = value < 10 ? `0${value}` : value;
+    
+        const labelEl = document.createElement("p");
+        labelEl.className = "time-label";
+        labelEl.textContent = label;
+    
+        // Add pulsing animation to seconds block
+        if (label === "Seconds") {
+            valueEl.style.animation = "pulse 1s infinite";
+        }
+    
+        block.appendChild(valueEl);
+        block.appendChild(labelEl);
+        return block;
+    };
+    
+    // Modified updateCountdown function
+    const updateCountdown = () => {
+        const now = new Date();
+        const difference = launchDate - now;
+    
+        if (difference > 0) {
+            const timeLeft = {
+                Days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+                Hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+                Minutes: Math.floor((difference / 1000 / 60) % 60),
+                Seconds: Math.floor((difference / 1000) % 60)
+            };
+    
+            countdownElement.innerHTML = "";
+            for (const [label, value] of Object.entries(timeLeft)) {
+                countdownElement.appendChild(createBlock(label, value));
+            }
+        } else {
+            // Handle countdown expiration
+            countdownElement.innerHTML = "";
+            document.querySelector(".countdown-title").textContent = "Launch Day!";
+            document.querySelector(".countdown-description").textContent =
+                "The day has arrived!";
+    
+            const messageBlock = document.createElement("div");
+            messageBlock.className = "time-block expired-message";
+            messageBlock.style.gridColumn = "1 / -1";
+            messageBlock.style.padding = "2rem";
+            messageBlock.textContent = "We're live now!";
+    
+            countdownElement.appendChild(messageBlock);
+            clearInterval(timer);
+        }
+    };
+    
+    // Initialize and set the interval
+    updateCountdown();
+    const timer = setInterval(updateCountdown, 1000);
+    
+    </script>
+</body>
+</html>
