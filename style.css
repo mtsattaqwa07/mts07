@@ -129,6 +129,37 @@ max-width: 415px;
     border-radius: 5px;
 }
 
+/* penerimaan */
+.penerimaan {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.siswa, .guru {
+    background: #ddd;
+    padding: 20px;
+    border-radius: 10px;
+}
+.siswa h3,
+.guru h3 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+.siswa ul,
+.guru ul {
+    margin-left: 20px;
+}
+.siswa li,
+.guru li {
+    margin: 7px;
+}
+
+.guru p, .siswa p {
+    margin-left: 8px;
+}
+
 @media (max-width: 800px) {
 body {
 padding: 15px;
