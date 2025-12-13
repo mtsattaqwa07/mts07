@@ -21,10 +21,41 @@
         }
         img {
             width: 100%;
+            border-radius: 10px;
         }
         .rapot, .pdm {
             padding: 20px;
             text-align: center;
+        }
+        .tka {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            margin: 20px;
+            padding-bottom: 20px;
+        }
+        .tka1,.tip {
+            background: #fff;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+        }
+        .tka ul {
+            list-style: none;
+        }
+        .tka li {
+            margin: 20px;
+        }
+        .tka a {
+            background-color: green;
+            color: white;
+            text-decoration: none;
+            padding: 7px 10px;
+            border-radius: 5px;
+        }
+        .tka a:hover { background: red;}
+        .tip li {
+            text-align: left;
+            margin: 5px;
         }
     </style>
 </head>
@@ -41,6 +72,27 @@
         <div class="rapot">
             <img src="foto/rapot.jpg" alt="rapot">
             <p>Nilai rapot 4 semester (kelas 7 semester ganjil, kelas 7 semester genap, kelas 8 semester ganjil, kelas 8 semester genap)  dikumpulkan paling lambat tanggal 25 Oktober 2025</p>
+        </div>
+
+        <div class="tka">
+            <div class="tip">
+                <h3>Tips Mengerjakan TKA</h3>
+                <ol>
+                    <li>Pastikan mapel yang anda pilih</li>
+                    <li>Masukan token ujian</li>
+                    <li>Masukan nama peserta sesuai kartu</li>
+                    <li>Masukan nomor peserta sesuai kartu</li>
+                    <li>Pilih kelas</li>
+                    <li>Kerjakan soal secara berurutan</li>
+                </ol>
+            </div>
+            <div class="tka1">
+                <h3>Latihan TKA</h3>
+                <ul>
+                    <li><a href="#">Bahasa Indonesia</a></li>
+                    <li><a href="#">Matematika</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </body>
