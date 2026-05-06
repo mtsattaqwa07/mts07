@@ -1,316 +1,601 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OSIS MTs. Attaqwa-07</title>
-    <link rel="shortcut icon" href="osis/osis.png" type="image/x-icon">
+    <link rel="shortcut icon" href="osis/osis.png" type="image/x-icon" />
     <style>
-        body {
-            background: green;
-            font-family: Arial, Helvetica, sans-serif;
-            font-style: 18px;
-        }
-        .pengurus img, .pembina img {
-            width: 200px;
-            border-radius: 50%;
-            box-shadow: 0 8px 16px 0 black;
-        }
-        .kegiatan img {
-            box-shadow: 0 8px 16px 0 black;
-            border-radius: 10px;
-            width: 100%;
-        }
+      body {
+        background: green;
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: 18px;
+      }
+      .pengurus img,
+      .pembina img {
+        width: 200px;
+        border-radius: 50%;
+        box-shadow: 0 8px 16px 0 black;
+      }
+      .kegiatan img {
+        box-shadow: 0 8px 16px 0 black;
+        border-radius: 10px;
+        width: 100%;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- tombol kembali -->
     <div class="kembali">
-        <a href="index.html" style="background: red; color: white; padding: 6px 10px;right: 20px; top: 20px; position: fixed; border-radius: 5px; text-decoration: none; font-weight: 600;">Kembali</a>
+      <a
+        href="index.html"
+        style="
+          background: red;
+          color: white;
+          padding: 6px 10px;
+          right: 20px;
+          top: 20px;
+          position: fixed;
+          border-radius: 5px;
+          text-decoration: none;
+          font-weight: 600;
+        "
+        >Kembali</a
+      >
     </div>
 
-    <header style="padding: 20px; border-radius: 15px; margin: 20px; background: #ddd; text-align: center; justify-content: center;">
-        <img style="width: 150px;" src="osis/osis.png" alt="logo">
-        <h2 style="color: rgb(11, 119, 11); text-transform: uppercase;">Organisasi Siswa Intra Sekolah (OSIS) <br> MTs. Attaqwa-07 Tarumajaya</h2>
-        <p style="text-align: justify">OSIS adalah sebuah Organisasi Resmi Tunggal di sekolah dalam Pendidikan di Indonesia yang diakui oleh Departemen Pendidikan dan Kebudayaan sejak 21 Maret 1970. Organisasi ini memiliki peran sebagai penggerak siswa untuk aktif berkontribusi di sekolah. Organisasi ini merupakan wadah Pembinaan Kesiswaan di Sekolah untuk pengembangan Minat, Bakat serta Potensi siswa. Ia berfungsi sebagai wadah untuk membicarakan beberapa hal tentang sekolah lebih lanjut, seperti Acara, Lomba, dan lain sebagainya.</p>
-        <div class="osis-sub" style="gap: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-            <div class="hukum" style="text-align: left; background: green;color: white; padding: 20px; border-radius: 10px;">
-                <h3>Dasar Hukum</h3>
-                <ol style="margin-left: -23px;">
-                    <li>Undang-Undang RI Nomor 20 tahun 2003 tentang Sistem Pendidikan Nasional;</li>
-                    <li>Peraturan Pemerintah RI Nomor 19 tahun 2005 tentang Standar Nasional Pendidikan;</li>
-                    <li>Permendiknas RI Nomor 23 tahun 2006 tentang Standar Kompetensi Lulusan;</li>
-                    <li>Permendiknas RI Nomor 19 tahun 2007 tentang Standar Pengelolaan;</li>
-                    <li>Permendiknas Nomor 39 tahun 2008 tentang Pembinaan Kesiswaan; dan,</li>
-                    <li>Buku Panduan OSIS terbitan Kemdiknas tahun 2011.</li>
-                </ol>
-            </div>
-            <div class="pembina" style="text-align: left; background: green;color: white; padding: 20px; border-radius: 10px;">
-                <h3>Pembina</h3>
-                <ol style="margin-left: -23px;">
-                    <li>Kepala Madrasah</li>
-                    <li>Wakil Kepala Madrasah (Wakamad) Bidang Kesiswaan</li>
-                    <li>Guru sebagai Anggota Pembina yang berfungsi sebagai pendamping dalam pelaksanaan kegiatan pembinaan.</li>
-                </ol>
-            </div>
-            <div class="pengurus" style="text-align: left; background: green; color:white; padding: 20px; border-radius: 10px;">
-                <h3>Pengurus</h3>
-                <ol style="margin-left: -23px;">
-                    <li>Ketua</li>
-                    <li>Wakil Ketua</li>
-                    <li>Bendahara</li>
-                    <li>Sekretaris</li>
-                    <li>Seksi bidang keagamaan</li>
-                    <li>Seksi bidang seni</li>
-                    <li>Seksi bidang olahraga</li>
-                    <li>Seksi bidang bahasa</li>
-                    <li>Seksi bidang humas</li>
-                    <li>Seksi bidang teknologi dan dokumentasi (teksi).</li>
-                    
-                </ol>
-            </div>
+    <header
+      style="
+        padding: 20px;
+        border-radius: 15px;
+        margin: 20px;
+        background: #ddd;
+        text-align: center;
+        justify-content: center;
+      "
+    >
+      <img style="width: 150px" src="osis/osis.png" alt="logo" />
+      <h2 style="color: rgb(11, 119, 11); text-transform: uppercase">
+        Organisasi Siswa Intra Sekolah (OSIS) <br />
+        MTs. Attaqwa-07 Tarumajaya
+      </h2>
+      <p style="text-align: justify">
+        OSIS adalah sebuah Organisasi Resmi Tunggal di sekolah dalam Pendidikan
+        di Indonesia yang diakui oleh Departemen Pendidikan dan Kebudayaan sejak
+        21 Maret 1970. Organisasi ini memiliki peran sebagai penggerak siswa
+        untuk aktif berkontribusi di sekolah. Organisasi ini merupakan wadah
+        Pembinaan Kesiswaan di Sekolah untuk pengembangan Minat, Bakat serta
+        Potensi siswa. Ia berfungsi sebagai wadah untuk membicarakan beberapa
+        hal tentang sekolah lebih lanjut, seperti Acara, Lomba, dan lain
+        sebagainya.
+      </p>
+      <div
+        class="osis-sub"
+        style="
+          gap: 20px;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        "
+      >
+        <div
+          class="hukum"
+          style="
+            text-align: left;
+            background: green;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+          "
+        >
+          <h3>Dasar Hukum</h3>
+          <ol style="margin-left: -23px">
+            <li>
+              Undang-Undang RI Nomor 20 tahun 2003 tentang Sistem Pendidikan
+              Nasional;
+            </li>
+            <li>
+              Peraturan Pemerintah RI Nomor 19 tahun 2005 tentang Standar
+              Nasional Pendidikan;
+            </li>
+            <li>
+              Permendiknas RI Nomor 23 tahun 2006 tentang Standar Kompetensi
+              Lulusan;
+            </li>
+            <li>
+              Permendiknas RI Nomor 19 tahun 2007 tentang Standar Pengelolaan;
+            </li>
+            <li>
+              Permendiknas Nomor 39 tahun 2008 tentang Pembinaan Kesiswaan; dan,
+            </li>
+            <li>Buku Panduan OSIS terbitan Kemdiknas tahun 2011.</li>
+          </ol>
         </div>
+        <div
+          class="pembina"
+          style="
+            text-align: left;
+            background: green;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+          "
+        >
+          <h3>Pembina</h3>
+          <ol style="margin-left: -23px">
+            <li>Kepala Madrasah</li>
+            <li>Wakil Kepala Madrasah (Wakamad) Bidang Kesiswaan</li>
+            <li>
+              Guru sebagai Anggota Pembina yang berfungsi sebagai pendamping
+              dalam pelaksanaan kegiatan pembinaan.
+            </li>
+          </ol>
+        </div>
+        <div
+          class="pengurus"
+          style="
+            text-align: left;
+            background: green;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+          "
+        >
+          <h3>Pengurus</h3>
+          <ol style="margin-left: -23px">
+            <li>Ketua</li>
+            <li>Wakil Ketua</li>
+            <li>Bendahara</li>
+            <li>Sekretaris</li>
+            <li>Seksi bidang keagamaan</li>
+            <li>Seksi bidang seni</li>
+            <li>Seksi bidang olahraga</li>
+            <li>Seksi bidang bahasa</li>
+            <li>Seksi bidang humas</li>
+            <li>Seksi bidang teknologi dan dokumentasi (teksi).</li>
+          </ol>
+        </div>
+      </div>
     </header>
 
     <!-- pembimbing -->
-    <div class="pembina" style="padding: 20px; border-radius: 15px; margin: 20px; background: #ddd; text-align: center; justify-content: center;">
-        <h2 style="color: green;">Pembina OSIS</h2>
-        <div class="kepala" style="padding: 20px;">
-            <h3>Kepala Madrasah</h3>
-            <img  src="osis/taj.jpg" alt="foto">
-            <p style="font-weight: 600;">Drs. Tajudin Abdullah, MM.Pd</p>
+    <div
+      class="pembina"
+      style="
+        padding: 20px;
+        border-radius: 15px;
+        margin: 20px;
+        background: #ddd;
+        text-align: center;
+        justify-content: center;
+      "
+    >
+      <h2 style="color: green">Pembina OSIS</h2>
+      <div class="kepala" style="padding: 20px">
+        <h3>Kepala Madrasah</h3>
+        <img src="osis/taj.jpg" alt="foto" />
+        <p style="font-weight: 600">Drs. Tajudin Abdullah, MM.Pd</p>
+      </div>
+      <div class="kesiswaan" style="padding: 20px">
+        <h3>Wakamad Kesiswaan</h3>
+        <img src="osis/b.jpg" alt="foto" />
+        <p style="font-weight: 600">Syariful Hidayatullah, SH</p>
+      </div>
+      <div
+        class="guru"
+        style="
+          padding: 20px;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          justify-content: center;
+        "
+      >
+        <div class="taqwa">
+          <h3>Pembina Keagamaan</h3>
+          <img src="osis/c.jpg" alt="foto" />
+          <p style="font-weight: 600">Ust. Maryati, S.PdI</p>
         </div>
-        <div class="kesiswaan" style="padding: 20px;">
-            <h3>Wakamad Kesiswaan</h3>
-            <img  src="osis/b.jpg" alt="foto">
-            <p style="font-weight: 600;">Syariful Hidayatullah, SH</p>
+        <div class="taqwa">
+          <h3>Pembina Seni</h3>
+          <img src="osis/d.jpg" alt="foto" />
+          <p style="font-weight: 600">Rojalih</p>
         </div>
-        <div class="guru" style="padding: 20px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-            <div class="taqwa">
-                <h3>Pembina Keagamaan</h3>
-                <img src="osis/c.jpg" alt="foto" >
-                <p style="font-weight: 600;">Ust. Maryati, S.PdI</p>
-            </div>
-            <div class="taqwa">
-                <h3>Pembina Seni</h3>
-                <img src="osis/d.jpg" alt="foto" >
-                <p style="font-weight: 600;">Rojalih</p>
-            </div>
-            <div class="taqwa">
-                <h3>Pembina Olahraga</h3>
-                <img src="osis/fateh.jpg" alt="foto" >
-                <p style="font-weight: 600;">Ahmad Falatehan, SHI</p>
-            </div>
-            <div class="taqwa">
-                <h3>Pembina Bahasa</h3>
-                <img src="osis/f.jpg" alt="foto" >
-                <p style="font-weight: 600;">Hj. Rusdah, S.Ag</p>
-            </div>
-            <div class="taqwa">
-                <h3>Pembina Humas</h3>
-                <img src="osis/didi.jpg" alt="foto" >
-                <p style="font-weight: 600;">Didi Mursidi, S.Pd</p>
-            </div>
-            <div class="taqwa">
-                <h3>Pembina Teksi</h3>
-                <img src="osis/h.jpg" alt="foto" >
-                <p style="font-weight: 600;">Dumyati, S.PdI</p>
-            </div>
+        <div class="taqwa">
+          <h3>Pembina Olahraga</h3>
+          <img src="osis/fateh.jpg" alt="foto" />
+          <p style="font-weight: 600">Ahmad Falatehan, SHI</p>
         </div>
+        <div class="taqwa">
+          <h3>Pembina Bahasa</h3>
+          <img src="osis/f.jpg" alt="foto" />
+          <p style="font-weight: 600">Hj. Rusdah, S.Ag</p>
+        </div>
+        <div class="taqwa">
+          <h3>Pembina Humas</h3>
+          <img src="osis/didi.jpg" alt="foto" />
+          <p style="font-weight: 600">Didi Mursidi, S.Pd</p>
+        </div>
+        <div class="taqwa">
+          <h3>Pembina Teksi</h3>
+          <img src="osis/h.jpg" alt="foto" />
+          <p style="font-weight: 600">Dumyati, S.PdI</p>
+        </div>
+      </div>
     </div>
 
     <!-- pengurus -->
-    <div class="pengurus" style="padding: 20px; border-radius: 15px; margin: 20px; background: #ddd; text-align: center; justify-content: center;">
-        <h2 style="color: green;">Pengurus OSIS</h2>
-        <div class="utama" style="padding: 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px">
-            <div class="ketua">
-                <h3>Ketua</h3>
-                <img src="osis/pengurus/p1.jpg" alt="foto">
-                <p style="font-weight: 600;">ELSYA RIZKIYAH SYARIF</p>
-            </div>
-            <div class="wakil">
-                <h3>Wakil</h3>
-                <img src="osis/pengurus/p25.jpg" alt="foto">
-                <p style="font-weight: 600;">KHANSA SYASA SAHIDA</p>
-            </div>
-            <div class="bendahara1">
-                <h3>Bendahara 1</h3>
-                <img src="osis/pengurus/p5.jpg" alt="foto">
-                <p style="font-weight: 600;">ZULFAH HASANAH RIFAI</p>
-            </div>
-            <div class="bendahara2">
-                <h3>Bendahara 2</h3>
-                <img src="osis/pengurus/p28.jpg" alt="foto">
-                <p style="font-weight: 600;">BUTSAINAH BILQIIS</p>
-            </div>
-            <div class="sekretaris1">
-                <h3>Sekretaris 1</h3>
-                <img src="osis/pengurus/p23.jpg" alt="foto">
-                <p style="font-weight: 600;">GANIS ANJANI</p>
-            </div>
-            <div class="sekretaris2">
-                <h3>Sekretaris 2</h3>
-                <img src="osis/pengurus/p24.jpg" alt="foto">
-                <p style="font-weight: 600;">DHELLY SHELLA RIYANTI</p>
-            </div>
-            <div class="keagamaan">
-                <h3>Seksi Keagamaan 1</h3>
-                <img src="osis/pengurus/p4.jpg" alt="foto">
-                <p style="font-weight: 600;">MUHAMMAD RASYID AL FAJAR</p>
-            </div>
-            <div class="keagamaan">
-                <h3>Seksi Keagamaan 2</h3>
-                <img src="osis/pengurus/p14.jpg" alt="foto">
-                <p style="font-weight: 600;">TJUT PUTROE BADRATUN N</p>
-            </div>
-            <div class="keagamaan">
-                <h3>Seksi Keagamaan 3</h3>
-                <img src="osis/pengurus/p26.jpg" alt="foto">
-                <p style="font-weight: 600;">SYARIFAH SYEHA AL ATAS</p>
-            </div>
-            <div class="keagamaan">
-                <h3>Seksi Keagamaan 4</h3>
-                <img src="osis/pengurus/p21.jpg" alt="foto">
-                <p style="font-weight: 600;">RAHMAH AZZAHRA</p>
-            </div>
-            <div class="seni">
-                <h3>Seksi Seni 1</h3>
-                <img src="osis/pengurus/p10.jpg" alt="foto">
-                <p style="font-weight: 600;">EKA JUNIAR RAHMANI </p>
-            </div>
-            <div class="seni">
-                <h3>Seksi Seni 2</h3>
-                <img src="osis/pengurus/p7.jpg" alt="foto">
-                <p style="font-weight: 600;">GIOVAN HAKKA K </p>
-            </div>
-            <div class="seni">
-                <h3>Seksi Seni 3</h3>
-                <img src="osis/pengurus/p18.jpg" alt="foto">
-                <p style="font-weight: 600;">RAFISA FALISHA HASAN</p>
-            </div>
-            <div class="seni">
-                <h3>Seksi Seni 4</h3>
-                <img src="osis/pengurus/p16.jpg" alt="foto">
-                <p style="font-weight: 600;">HAURA MALIKA BALQIS</p>
-            </div>
-            <div class="olahraga">
-                <h3>Seksi Olahraga 1</h3>
-                <img src="osis/pengurus/p17.jpg" alt="foto">
-                <p style="font-weight: 600;">SABILA NURAINI</p>
-            </div>
-            <div class="olahraga">
-                <h3>Seksi Olahraga 2</h3>
-                <img src="osis/pengurus/p29.jpg" alt="foto">
-                <p style="font-weight: 600;">NAZWANI VIVIYANI</p>
-            </div>
-            <div class="olahraga">
-                <h3>Seksi Olahraga 3</h3>
-                <img src="osis/pengurus/p6.jpg" alt="foto">
-                <p style="font-weight: 600;">FANIA SUMAYAH</p>
-            </div>
-            <div class="olahraga">
-                <h3>Seksi Olahraga 4</h3>
-                <img src="osis/pengurus/p27.jpg" alt="foto">
-                <p style="font-weight: 600;">REFHAN JAYA</p>
-            </div>
-            <div class="bahasa">
-                <h3>Seksi Bahasa 1</h3>
-                <img src="osis/pengurus/p3.jpg" alt="foto">
-                <p style="font-weight: 600;">MUHAMMAD FAIZ INDRA</p>
-            </div>
-            <div class="bahasa">
-                <h3>Seksi Bahasa 2</h3>
-                <img src="osis/pengurus/p11.jpg" alt="foto">
-                <p style="font-weight: 600;">MISHAEL ARYA PUTRI </p>
-            </div>
-            <div class="bahasa">
-                <h3>Seksi Bahasa 3</h3>
-                <img src="osis/pengurus/p22.jpg" alt="foto">
-                <p style="font-weight: 600;">ZIFARA AL KEYSHA</p>
-            </div>
-            <div class="bahasa">
-                <h3>Seksi Bahasa 4</h3>
-                <img src="osis/pengurus/p20.jpg" alt="foto">
-                <p style="font-weight: 600;">SELA RAMADANI</p>
-            </div>
-            <div class="humas">
-                <h3>Seksi Humas 1</h3>
-                <img src="osis/pengurus/p8.jpg" alt="foto">
-                <p style="font-weight: 600;">NAURI ALFIKA NADILA PUTRI</p>
-            </div>
-            <div class="humas">
-                <h3>Seksi Humas 2</h3>
-                <img src="osis/pengurus/p30.jpg" alt="foto">
-                <p style="font-weight: 600;">NAJMA MAGHFIROTUNNISA </p>
-            </div>
-            <div class="humas">
-                <h3>Seksi Humas 3</h3>
-                <img src="osis/pengurus/p12.jpg" alt="foto">
-                <p style="font-weight: 600;">QEENAN ASMARA Q </p>
-            </div>
-            <div class="humas">
-                <h3>Seksi Humas 4</h3>
-                <img src="osis/pengurus/p13.jpg" alt="foto">
-                <p style="font-weight: 600;">NIZHAM ULUMUDIN</p>
-            </div>
-            <div class="teksi">
-                <h3>Seksi Teksi 1</h3>
-                <img src="osis/pengurus/p15.jpg" alt="foto">
-                <p style="font-weight: 600;">CHRISTA ETNA MAMAHIT </p>
-            </div>
-            <div class="teksi">
-                <h3>Seksi Teksi 2</h3>
-                <img src="osis/pengurus/p9.jpg" alt="foto">
-                <p style="font-weight: 600;">IWELKA BIYAN WALIYU</p>
-            </div>
-            <div class="teksi">
-                <h3>Seksi Teksi 3</h3>
-                <img src="osis/pengurus/p19.jpg" alt="foto">
-                <p style="font-weight: 600;">FRISKA YULI AGOESTIN</p>
-            </div>
-            <div class="teksi">
-                <h3>Seksi Teksi 4</h3>
-                <img src="osis/pengurus/p2.jpg" alt="foto">
-                <p style="font-weight: 600;">WILDAN KHOIRUL AMMAR</p>
-            </div>
+    <div
+      class="pengurus"
+      style="
+        padding: 20px;
+        border-radius: 15px;
+        margin: 20px;
+        background: #ddd;
+        text-align: center;
+        justify-content: center;
+      "
+    >
+      <h2 style="color: green">Pengurus OSIS</h2>
+      <div
+        class="utama"
+        style="
+          padding: 20px;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 20px;
+        "
+      >
+        <div class="ketua">
+          <h3>Ketua</h3>
+          <img src="osis/pengurus/p1.jpg" alt="foto" />
+          <p style="font-weight: 600">ELSYA RIZKIYAH SYARIF</p>
         </div>
+        <div class="wakil">
+          <h3>Wakil</h3>
+          <img src="osis/pengurus/p25.jpg" alt="foto" />
+          <p style="font-weight: 600">KHANSA SYASA SAHIDA</p>
+        </div>
+        <div class="bendahara1">
+          <h3>Bendahara 1</h3>
+          <img src="osis/pengurus/p5.jpg" alt="foto" />
+          <p style="font-weight: 600">ZULFAH HASANAH RIFAI</p>
+        </div>
+        <div class="bendahara2">
+          <h3>Bendahara 2</h3>
+          <img src="osis/pengurus/p28.jpg" alt="foto" />
+          <p style="font-weight: 600">BUTSAINAH BILQIIS</p>
+        </div>
+        <div class="sekretaris1">
+          <h3>Sekretaris 1</h3>
+          <img src="osis/pengurus/p23.jpg" alt="foto" />
+          <p style="font-weight: 600">GANIS ANJANI</p>
+        </div>
+        <div class="sekretaris2">
+          <h3>Sekretaris 2</h3>
+          <img src="osis/pengurus/p24.jpg" alt="foto" />
+          <p style="font-weight: 600">DHELLY SHELLA RIYANTI</p>
+        </div>
+        <div class="keagamaan">
+          <h3>Seksi Keagamaan 1</h3>
+          <img src="osis/pengurus/p4.jpg" alt="foto" />
+          <p style="font-weight: 600">MUHAMMAD RASYID AL FAJAR</p>
+        </div>
+        <div class="keagamaan">
+          <h3>Seksi Keagamaan 2</h3>
+          <img src="osis/pengurus/p14.jpg" alt="foto" />
+          <p style="font-weight: 600">TJUT PUTROE BADRATUN N</p>
+        </div>
+        <div class="keagamaan">
+          <h3>Seksi Keagamaan 3</h3>
+          <img src="osis/pengurus/p26.jpg" alt="foto" />
+          <p style="font-weight: 600">SYARIFAH SYEHA AL ATAS</p>
+        </div>
+        <div class="keagamaan">
+          <h3>Seksi Keagamaan 4</h3>
+          <img src="osis/pengurus/p21.jpg" alt="foto" />
+          <p style="font-weight: 600">RAHMAH AZZAHRA</p>
+        </div>
+        <div class="seni">
+          <h3>Seksi Seni 1</h3>
+          <img src="osis/pengurus/p10.jpg" alt="foto" />
+          <p style="font-weight: 600">EKA JUNIAR RAHMANI</p>
+        </div>
+        <div class="seni">
+          <h3>Seksi Seni 2</h3>
+          <img src="osis/pengurus/p7.jpg" alt="foto" />
+          <p style="font-weight: 600">GIOVAN HAKKA K</p>
+        </div>
+        <div class="seni">
+          <h3>Seksi Seni 3</h3>
+          <img src="osis/pengurus/p18.jpg" alt="foto" />
+          <p style="font-weight: 600">RAFISA FALISHA HASAN</p>
+        </div>
+        <div class="seni">
+          <h3>Seksi Seni 4</h3>
+          <img src="osis/pengurus/p16.jpg" alt="foto" />
+          <p style="font-weight: 600">HAURA MALIKA BALQIS</p>
+        </div>
+        <div class="olahraga">
+          <h3>Seksi Olahraga 1</h3>
+          <img src="osis/pengurus/p17.jpg" alt="foto" />
+          <p style="font-weight: 600">SABILA NURAINI</p>
+        </div>
+        <div class="olahraga">
+          <h3>Seksi Olahraga 2</h3>
+          <img src="osis/pengurus/p29.jpg" alt="foto" />
+          <p style="font-weight: 600">NAZWANI VIVIYANI</p>
+        </div>
+        <div class="olahraga">
+          <h3>Seksi Olahraga 3</h3>
+          <img src="osis/pengurus/p6.jpg" alt="foto" />
+          <p style="font-weight: 600">FANIA SUMAYAH</p>
+        </div>
+        <div class="olahraga">
+          <h3>Seksi Olahraga 4</h3>
+          <img src="osis/pengurus/p27.jpg" alt="foto" />
+          <p style="font-weight: 600">REFHAN JAYA</p>
+        </div>
+        <div class="bahasa">
+          <h3>Seksi Bahasa 1</h3>
+          <img src="osis/pengurus/p3.jpg" alt="foto" />
+          <p style="font-weight: 600">MUHAMMAD FAIZ INDRA</p>
+        </div>
+        <div class="bahasa">
+          <h3>Seksi Bahasa 2</h3>
+          <img src="osis/pengurus/p11.jpg" alt="foto" />
+          <p style="font-weight: 600">MISHAEL ARYA PUTRI</p>
+        </div>
+        <div class="bahasa">
+          <h3>Seksi Bahasa 3</h3>
+          <img src="osis/pengurus/p22.jpg" alt="foto" />
+          <p style="font-weight: 600">ZIFARA AL KEYSHA</p>
+        </div>
+        <div class="bahasa">
+          <h3>Seksi Bahasa 4</h3>
+          <img src="osis/pengurus/p20.jpg" alt="foto" />
+          <p style="font-weight: 600">SELA RAMADANI</p>
+        </div>
+        <div class="humas">
+          <h3>Seksi Humas 1</h3>
+          <img src="osis/pengurus/p8.jpg" alt="foto" />
+          <p style="font-weight: 600">NAURI ALFIKA NADILA PUTRI</p>
+        </div>
+        <div class="humas">
+          <h3>Seksi Humas 2</h3>
+          <img src="osis/pengurus/p30.jpg" alt="foto" />
+          <p style="font-weight: 600">NAJMA MAGHFIROTUNNISA</p>
+        </div>
+        <div class="humas">
+          <h3>Seksi Humas 3</h3>
+          <img src="osis/pengurus/p12.jpg" alt="foto" />
+          <p style="font-weight: 600">QEENAN ASMARA Q</p>
+        </div>
+        <div class="humas">
+          <h3>Seksi Humas 4</h3>
+          <img src="osis/pengurus/p13.jpg" alt="foto" />
+          <p style="font-weight: 600">NIZHAM ULUMUDIN</p>
+        </div>
+        <div class="teksi">
+          <h3>Seksi Teksi 1</h3>
+          <img src="osis/pengurus/p15.jpg" alt="foto" />
+          <p style="font-weight: 600">CHRISTA ETNA MAMAHIT</p>
+        </div>
+        <div class="teksi">
+          <h3>Seksi Teksi 2</h3>
+          <img src="osis/pengurus/p9.jpg" alt="foto" />
+          <p style="font-weight: 600">IWELKA BIYAN WALIYU</p>
+        </div>
+        <div class="teksi">
+          <h3>Seksi Teksi 3</h3>
+          <img src="osis/pengurus/p19.jpg" alt="foto" />
+          <p style="font-weight: 600">FRISKA YULI AGOESTIN</p>
+        </div>
+        <div class="teksi">
+          <h3>Seksi Teksi 4</h3>
+          <img src="osis/pengurus/p2.jpg" alt="foto" />
+          <p style="font-weight: 600">WILDAN KHOIRUL AMMAR</p>
+        </div>
+      </div>
     </div>
 
     <!-- konten -->
-    <div class="konten" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px; border-radius: 20px;">
-        <div class="audio" style="padding: 20px; text-align: center; background-color: #ddd; border-radius: 20px;">
-            <h2 style="color: green;">Audio</h2>
-            <img src="osis/audio.png" alt="audio" width="70px" style="margin-bottom: 20px; box-shadow: 0 8px 16px 0 black; border-radius: 50%;">
-            <div class="nadhom">
-                <iframe src="https://drive.google.com/file/d/1D4wwwAga1EmagE1TGc70GHYwwnh6fUMX/preview" width="150" height="35" allow="autoplay" style="border-radius: 10px;"></iframe>
-                <p>Nadhom</p>
-            </div>
-            <div class="yasin">
-                <iframe src="https://drive.google.com/file/d/1t0Th9sP7SQlXkR7sf7QbIqSBhEpw7MTE/preview" width="150" height="35" allow="autoplay" style="border-radius: 10px;"></iframe>
-                <p>Yasin</p>
-            </div>
-            <div class="ratib">
-                <iframe src="https://drive.google.com/file/d/1KBBi0VebhIhcRSXFhkiOZJiSleQS4lPL/preview" width="150" height="35" allow="autoplay" style="border-radius: 10px;"></iframe>
-                <p>Ratib</p>
-            </div>
-            <div class="mahaguru" style="margin-bottom: 30px;">
-                <iframe src="https://drive.google.com/file/d/1pOVYS-I2943B0zhiUmFhzyR3ki3HGWLr/preview" width="150" height="35" allow="autoplay" style="border-radius: 10px"></iframe>
-                <p>Maha Guru</p>
-            </div>
-            <div class="unduh" style="margin-bottom: 30px;">
-                <a href="https://drive.google.com/drive/folders/1kzyceEuazVuPCVbT8Cm1r-XTdSO14fAz?usp=sharing" style="background: green; color: white; text-decoration: none; padding: 6px 12px; border-radius: 7px">Unduh</a>
-            </div>
+    <div
+      class="konten"
+      style="
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin: 20px;
+        border-radius: 20px;
+      "
+    >
+      <div
+        class="audio"
+        style="
+          padding: 20px;
+          text-align: center;
+          background-color: #ddd;
+          border-radius: 20px;
+        "
+      >
+        <h2 style="color: green">Audio</h2>
+        <img
+          src="osis/audio.png"
+          alt="audio"
+          width="70px"
+          style="
+            margin-bottom: 20px;
+            box-shadow: 0 8px 16px 0 black;
+            border-radius: 50%;
+          "
+        />
+        <div class="nadhom">
+          <iframe
+            src="https://drive.google.com/file/d/1D4wwwAga1EmagE1TGc70GHYwwnh6fUMX/preview"
+            width="150"
+            height="35"
+            allow="autoplay"
+            style="border-radius: 10px"
+          ></iframe>
+          <p>Nadhom</p>
         </div>
-        <div class="view" style="padding: 20px; text-align: center; background-color: #ddd; border-radius: 20px;">
-            <h2 style="color: green;">Perhatian</h2>
-            <img src="osis/osis.png" alt="osis" width="70px" style="margin-bottom: 20px">
-            <p style="text-align: justify; margin-bottom: 20px;">Bagi pengurus OSIS yang melanggar aturan berat seperti : narkoba, membolos, tawuran, memalak, membully dan sebagainya. Maka akan dicabut kepengurusannya dan diganti dengan pengurus yang baru. </p>
+        <div class="yasin">
+          <iframe
+            src="https://drive.google.com/file/d/1t0Th9sP7SQlXkR7sf7QbIqSBhEpw7MTE/preview"
+            width="150"
+            height="35"
+            allow="autoplay"
+            style="border-radius: 10px"
+          ></iframe>
+          <p>Yasin</p>
         </div>
+        <div class="ratib">
+          <iframe
+            src="https://drive.google.com/file/d/1KBBi0VebhIhcRSXFhkiOZJiSleQS4lPL/preview"
+            width="150"
+            height="35"
+            allow="autoplay"
+            style="border-radius: 10px"
+          ></iframe>
+          <p>Ratib</p>
+        </div>
+        <div class="mahaguru" style="margin-bottom: 30px">
+          <iframe
+            src="https://drive.google.com/file/d/1pOVYS-I2943B0zhiUmFhzyR3ki3HGWLr/preview"
+            width="150"
+            height="35"
+            allow="autoplay"
+            style="border-radius: 10px"
+          ></iframe>
+          <p>Maha Guru</p>
+        </div>
+        <div class="unduh" style="margin-bottom: 30px">
+          <a
+            href="https://drive.google.com/drive/folders/1kzyceEuazVuPCVbT8Cm1r-XTdSO14fAz?usp=sharing"
+            style="
+              background: green;
+              color: white;
+              text-decoration: none;
+              padding: 6px 12px;
+              border-radius: 7px;
+            "
+            >Unduh</a
+          >
+        </div>
+      </div>
+      <div
+        class="view"
+        style="
+          padding: 20px;
+          text-align: center;
+          background-color: #ddd;
+          border-radius: 20px;
+        "
+      >
+        <h2 style="color: green">Perhatian</h2>
+        <img
+          src="osis/osis.png"
+          alt="osis"
+          width="70px"
+          style="margin-bottom: 20px"
+        />
+        <p style="text-align: justify; margin-bottom: 20px">
+          Bagi pengurus OSIS yang melanggar aturan berat seperti : narkoba,
+          membolos, tawuran, memalak, membully dan sebagainya. Maka akan dicabut
+          kepengurusannya dan diganti dengan pengurus yang baru.
+        </p>
+      </div>
     </div>
 
     <!-- kegiatan -->
-    <div class="kegiatan" style="text-align: center; background-color: yellowgreen; padding: 20px; margin: 20px; border-radius: 20px;">
-        <img src="osis/classmeeting.jpg" alt="jadwal classmeeting" >
+    <div
+      class="kegiatan"
+      style="
+        text-align: center;
+        background-color: yellowgreen;
+        padding: 20px;
+        margin: 20px;
+        border-radius: 20px;
+      "
+    >
+      <img src="osis/classmeeting.jpg" alt="jadwal classmeeting" />
     </div>
-</body>
+
+    <!-- PPDB -->
+    <div
+      class="ppdb"
+      style="
+        background: white;
+        margin: 20px;
+        border-radius: 10px;
+        padding: 20px;
+      "
+    >
+      <h3 style="text-align: center">
+        SOSIALISASI PENDAFTARAN CALON SISWA BARU
+      </h3>
+      <div
+        class="sosialisasi"
+        style="
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        "
+      >
+        <div
+          class="calonsiswa"
+          style="
+            background: yellowgreen;
+            margin: 20px;
+            padding: 10px;
+            border-radius: 7px;
+            box-shadow: 0 8px 16px 0 black;
+          "
+        >
+          <p style="padding-left: 20px">
+            Silahkan masukan data <b>calon siswa baru</b> diantaranya :
+          </p>
+          <ol>
+            <li>Nama Lengkap</li>
+            <li>Nama Panggilan</li>
+            <li>Asal Sekolah</li>
+            <li>Alamat Lengkap (Nama Kampung atau Perumahan, RT, RW, Desa)</li>
+          </ol>
+        </div>
+        <div
+          class="rekrutman"
+          style="
+            background: yellowgreen;
+            margin: 20px;
+            padding: 10px;
+            border-radius: 7px;
+            box-shadow: 0 8px 16px 0 black;
+          "
+        >
+          <p style="padding-left: 20px">
+            Silahkan masukan <b>data diri kamu (rekrutman)</b>  diantaranya:
+          </p>
+          <ol>
+            <li>Nama Lengkap</li>
+            <li>Pilih Kelas (Misal : 7A)</li>
+          </ol>
+        </div>
+      </div>
+      <div class="tombol" style="text-align: center; margin-top: 5px;">
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLScOS8VmbKbFRi_NQT1UNQ0mFL3fjLRWI5eDYBv8O9ik1Urgzg/viewform?usp=sharing&ouid=111634622759804893016" target="_blank"
+          style="
+            background: red;
+            padding: 8px 15px;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 6px;
+            text-align: center;
+          "
+          >BUKA</a
+        >
+      </div>
+    </div>
+  </body>
 </html>
