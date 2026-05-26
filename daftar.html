@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPMB MTSS ATTAQWA 07 TARUMAJAYA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+    <style>
+        /* Desain Khusus ketika Printer/Fitur Cetak Browser Aktif */
+        @media print {
+            body {
+                background: white;
+                color: black;
+                padding: 0;
+                margin: 0;
+            }
+
+            nav,
+            .no-print,
+            button,
+            input,
+            select,
+            textarea {
+                display: none !important;
+            }
+
+            .print-only {
+                display: block !important;
+            }
+
+            .shadow-sm,
+            .rounded-2xl {
+                border: none !important;
+                box-shadow: none !important;
+            }
+
+            table {
+                width: 100% !important;
+                border-collapse: collapse !important;
+            }
+
+            th,
+            td {
+                border: 1px solid #cbd5e1 !important;
+                padding: 8px !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 font-sans antialiased">
+
+    <div class="min-h-screen flex flex-col">
+        <nav class="bg-gradient-to-r from-slate-900 to-blue-950 text-white shadow-lg sticky top-0 z-50 no-print">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center">
+                        <span class="text-2xl font-black tracking-wider text-amber-400">🎓 SPMB MTSS ATTAQWA 07
+                            TARUMAJAYA</span>
+                    </div>
+                    <div class="flex gap-3">
+                        <button onclick="switchView('dashboard')"
+                            class="bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-xl text-sm font-semibold transition">
+                            📊 Dashboard Data
+                        </button>
+                        <button onclick="bukaFormTambah()"
+                            class="bg-emerald-600 hover:bg-emerald-500 px-4 py-2 rounded-xl text-sm font-semibold transition">
+                            ➕ Tambah Pendaftar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="hidden print-only text-center border-b-4 border-double border-slate-900 pb-4 mb-6 mt-4">
+            <h1 class="text-2xl font-extrabold uppercase tracking-wide">PANITIA PENERIMAAN PESERTA DIDIK BARU (SPMB)
+            </h1>
+            <p class="text-sm text-slate-700 mt-0.5">Laporan Rekapitulasi Data Transaksi Calon Siswa Terdaftar</p>
+            <p class="text-xs text-slate-500">Sistem Informasi Pendaftaran Terintegrasi • Tahun Pelajaran 2026/2027</p>
+        </div>
+
+        <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
+
+            <div id="view-dashboard" class="space-y-6">
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 no-print">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Total Pendaftar</span>
+                        <p class="text-4xl font-black text-slate-800 mt-1" id="stat-total">0</p>
+                    </div>
+                    <div
+                        class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 border-l-4 border-l-blue-600">
+                        <span class="text-xs font-bold text-blue-600 uppercase tracking-wider">Laki-Laki (L)</span>
+                        <p class="text-4xl font-black text-slate-800 mt-1" id="stat-laki">0</p>
+                    </div>
+                    <div
+                        class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 border-l-4 border-l-pink-500">
+                        <span class="text-xs font-bold text-pink-500 uppercase tracking-wider">Perempuan (P)</span>
+                        <p class="text-4xl font-black text-slate-800 mt-1" id="stat-perempuan">0</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                    <div
+                        class="p-5 border-b border-slate-100 bg-slate-50/70 flex flex-col xl:flex-row items-center justify-between gap-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-800">Database Calon Siswa Baru</h3>
+                            <p class="text-xs text-slate-500 no-print">Ekspor data secara instan ke berbagai pilihan
+                                format perkantoran.</p>
+                        </div>
+
+                        <div class="w-full xl:w-auto flex flex-wrap items-center gap-2 justify-end no-print">
+                            <input type="text" id="search-input" oninput="cariSiswa()"
+                                placeholder="🔍 Cari nama / asal sekolah..."
+                                class="w-full md:w-52 px-4 py-2 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
+
+                            <button onclick="window.print()"
+                                class="bg-slate-700 hover:bg-slate-600 text-white text-xs font-bold px-3 py-2.5 rounded-xl transition flex items-center gap-1.5 shadow-sm">
+                                🖨️ CETAK KERTAS
+                            </button>
+                            <button onclick="eksporKePDF()"
+                                class="bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold px-3 py-2.5 rounded-xl transition flex items-center gap-1.5 shadow-sm">
+                                📄 EXPORT PDF
+                            </button>
+                            <button onclick="eksporKeExcel()"
+                                class="bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-bold px-3 py-2.5 rounded-xl transition flex items-center gap-1.5 shadow-sm">
+                                🟢 EXPORT EXCEL
+                            </button>
+                            <button onclick="eksporKeWord()"
+                                class="bg-blue-700 hover:bg-blue-600 text-white text-xs font-bold px-3 py-2.5 rounded-xl transition flex items-center gap-1.5 shadow-sm">
+                                🔵 EXPORT WORD
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse" id="tabel-spmb-data">
+                            <thead>
+                                <tr
+                                    class="bg-slate-100/80 text-slate-600 uppercase text-xs font-bold tracking-wider border-b border-slate-200">
+                                    <th class="py-3.5 px-6">No. Peserta</th>
+                                    <th class="py-3.5 px-6">Nama Lengkap</th>
+                                    <th class="py-3.5 px-6">L/P</th>
+                                    <th class="py-3.5 px-6">Sekolah Asal</th>
+                                    <th class="py-3.5 px-6">Alamat Lengkap</th>
+                                    <th class="py-3.5 px-6 text-center no-print">Manajemen Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body" class="text-slate-700 text-sm divide-y divide-slate-100">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-form"
+                class="hidden max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-md border border-slate-200 no-print">
+                <div class="border-b pb-4 mb-6">
+                    <h3 class="text-xl font-bold text-slate-800" id="form-title">Pendaftaran Entri Siswa</h3>
+                </div>
+
+                <form id="form-spmb" onsubmit="simpanDataPendaftar(event)" class="space-y-5">
+                    <input type="hidden" id="form-index">
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Nomor Urut Peserta</label>
+                        <input type="text" id="form-nopes" disabled
+                            class="w-full p-3 bg-slate-100 border border-slate-300 rounded-xl font-bold text-slate-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Nama Lengkap Calon
+                            Siswa</label>
+                        <input type="text" id="form-nama" required
+                            class="w-full p-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 uppercase font-semibold text-slate-800">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Jenis Kelamin
+                            (Gender)</label>
+                        <select id="form-lp"
+                            class="w-full p-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 font-medium">
+                            <option value="L">Laki-laki (L)</option>
+                            <option value="P">Perempuan (P)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Sekolah Asal</label>
+                        <input type="text" id="form-sekolah" required
+                            class="w-full p-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 uppercase font-semibold text-slate-800">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Alamat Rumah
+                            Lengkap</label>
+                        <textarea id="form-alamat" rows="3" required
+                            class="w-full p-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-700"></textarea>
+                    </div>
+                    <div class="pt-3 flex gap-4">
+                        <button type="button" onclick="switchView('dashboard')"
+                            class="w-1/3 bg-slate-100 text-slate-700 font-semibold py-3 rounded-xl hover:bg-slate-200 transition">Batal</button>
+                        <button type="submit" id="btn-submit"
+                            class="w-2/3 bg-blue-900 text-white font-semibold py-3 rounded-xl hover:bg-blue-800 shadow-md transition">Simpan
+                            Basis Data</button>
+                    </div>
+                </form>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        // Data Awal yang diambil langsung sesuai dengan isi berkas csv pendaftar milik Anda
+        const dataAwalCsv = [
+            { nopes: 1, nama: "AHMAD", lp: "L", sekolah: "P", alamat: "Kp. Bali RT 001/001 Desa Segaramakmur" },
+            { nopes: 2, nama: "SITI AMINAH", lp: "P", sekolah: "SMP MATHLAUL ANWAR", alamat: "Kampung Baru RT 02/03" },
+            { nopes: 3, nama: "BUDI SUDARSONO", lp: "L", sekolah: "SMPN 5 SEJAHTERA", alamat: "Perum Indah Blok C" }
+        ];
+
+        let databaseSiswa = JSON.parse(localStorage.getItem("spmbMultiFormatData")) || dataAwalCsv;
+
+        function initApp() {
+            localStorage.setItem("spmbMultiFormatData", JSON.stringify(databaseSiswa));
+            renderTabel(databaseSiswa);
+            kalkulasiStatistik();
+        }
+
+        // READ DATA
+        function renderTabel(data) {
+            const tbody = document.getElementById("table-body");
+            tbody.innerHTML = "";
+
+            if (data.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" class="py-10 text-center text-slate-400 font-medium">Data kosong / tidak ditemukan.</td></tr>`;
+                return;
+            }
+
+            data.forEach((siswa) => {
+                const indexAsli = databaseSiswa.findIndex(s => s.nopes === siswa.nopes);
+                const tr = document.createElement("tr");
+                tr.className = "hover:bg-slate-50/80 transition text-slate-700";
+                tr.innerHTML = `
+                    <td class="py-3.5 px-6 font-bold text-slate-500">${siswa.nopes}</td>
+                    <td class="py-3.5 px-6 font-bold text-slate-900">${siswa.nama}</td>
+                    <td class="py-3.5 px-6">
+                        <span class="px-2.5 py-1 text-xs font-extrabold rounded-full ${siswa.lp === 'L' ? 'bg-blue-100 text-blue-700' : 'bg-pink-100 text-pink-700'}">${siswa.lp}</span>
+                    </td>
+                    <td class="py-3.5 px-6 font-semibold text-slate-600">${siswa.sekolah}</td>
+                    <td class="py-3.5 px-6 text-slate-500 max-w-sm truncate" title="${siswa.alamat}">${siswa.alamat}</td>
+                    <td class="py-3.5 px-6 text-center space-x-1 no-print">
+                        <button onclick="bukaFormEdit(${indexAsli})" class="text-blue-600 font-bold text-xs bg-blue-50 px-2.5 py-1.5 rounded-lg border border-blue-200 hover:bg-blue-600 hover:text-white transition">✏️ Edit</button>
+                        <button onclick="hapusSiswa(${indexAsli}, '${siswa.nama}')" class="text-red-600 font-bold text-xs bg-red-50 px-2.5 py-1.5 rounded-lg border border-red-200 hover:bg-red-600 hover:text-white transition">🗑️ Hapus</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // CREATE & UPDATE
+        function simpanDataPendaftar(event) {
+            event.preventDefault();
+            const indexForm = document.getElementById("form-index").value;
+            const nopes = parseInt(document.getElementById("form-nopes").value);
+            const nama = document.getElementById("form-nama").value.toUpperCase();
+            const lp = document.getElementById("form-lp").value;
+            const sekolah = document.getElementById("form-sekolah").value.toUpperCase();
+            const alamat = document.getElementById("form-alamat").value;
+
+            const dataModel = { nopes, nama, lp, sekolah, alamat };
+
+            if (indexForm === "") {
+                databaseSiswa.push(dataModel);
+                alert(`🎉 Berhasil menambahkan siswa baru: ${nama}`);
+            } else {
+                databaseSiswa[indexForm] = dataModel;
+                alert(`✏️ Berhasil memperbarui data siswa: ${nama}`);
+            }
+
+            initApp();
+            switchView('dashboard');
+        }
+
+        function bukaFormTambah() {
+            document.getElementById("form-spmb").reset();
+            document.getElementById("form-index").value = "";
+            document.getElementById("form-title").innerText = "Formulir Tambah Pendaftar Baru";
+            document.getElementById("btn-submit").innerText = "Simpan Data Baru";
+
+            const urutanNopes = databaseSiswa.length > 0 ? Math.max(...databaseSiswa.map(s => s.nopes)) + 1 : 1;
+            document.getElementById("form-nopes").value = urutanNopes;
+            switchView('form');
+        }
+
+        function bukaFormEdit(index) {
+            const siswa = databaseSiswa[index];
+            document.getElementById("form-index").value = index;
+            document.getElementById("form-nopes").value = siswa.nopes;
+            document.getElementById("form-nama").value = siswa.nama;
+            document.getElementById("form-lp").value = siswa.lp;
+            document.getElementById("form-sekolah").value = siswa.sekolah;
+            document.getElementById("form-alamat").value = siswa.alamat;
+
+            document.getElementById("form-title").innerText = "Ubah Informasi Calon Siswa";
+            document.getElementById("btn-submit").innerText = "Perbarui Data";
+            switchView('form');
+        }
+
+        // DELETE
+        function hapusSiswa(index, namaSiswa) {
+            if (confirm(`Apakah Anda yakin ingin menghapus permanen data "${namaSiswa}"?`)) {
+                databaseSiswa.splice(index, 1);
+                initApp();
+            }
+        }
+
+        // SEARCH ENGINE
+        function cariSiswa() {
+            const keyword = document.getElementById("search-input").value.toLowerCase();
+            const filtered = databaseSiswa.filter(s =>
+                s.nama.toLowerCase().includes(keyword) || s.sekolah.toLowerCase().includes(keyword)
+            );
+            renderTabel(filtered);
+        }
+
+        function kalkulasiStatistik() {
+            document.getElementById("stat-total").innerText = databaseSiswa.length;
+            document.getElementById("stat-laki").innerText = databaseSiswa.filter(s => s.lp === "L").length;
+            document.getElementById("stat-perempuan").innerText = databaseSiswa.filter(s => s.lp === "P").length;
+        }
+
+        // ======================== [ FITUR EKSPOR PDF ] ========================
+        function eksporKePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF('p', 'mm', 'a4');
+            doc.setFont("Helvetica", "bold");
+            doc.setFontSize(15);
+            doc.text("LAPORAN DATA CALON PESERTA DIDIK BARU (SPMB)", 14, 15);
+            doc.setFontSize(10);
+            doc.setFont("Helvetica", "normal");
+            doc.text(`Dicetak Otomatis Sistem Sistem pada Tanggal: ${new Date().toLocaleDateString('id-ID')}`, 14, 21);
+            doc.setLineWidth(0.4);
+            doc.line(14, 24, 196, 24);
+
+            const barisPdf = databaseSiswa.map(s => [s.nopes, s.nama, s.lp, s.sekolah, s.alamat]);
+            doc.autoTable({
+                startY: 28,
+                head: [['No. Peserta', 'Nama Lengkap', 'L/P', 'Sekolah Asal', 'Alamat Lengkap']],
+                body: barisPdf,
+                theme: 'striped',
+                headStyles: { fillColor: [15, 23, 42] },
+                styles: { fontSize: 9 }
+            });
+            doc.save("Laporan_Pendaftaran_SPMB.pdf");
+        }
+
+        // ======================== [ FITUR EKSPOR EXCEL (.XLSX) ] ========================
+        function eksporKeExcel() {
+            // Mapping header agar terlihat rapi dan formal di lembar Excel
+            const mappingData = databaseSiswa.map(s => ({
+                "No. Peserta": s.nopes,
+                "Nama Lengkap": s.nama,
+                "Jenis Kelamin (L/P)": s.lp,
+                "Sekolah Asal": s.sekolah,
+                "Alamat Lengkap": s.alamat
+            }));
+
+            const worksheet = XLSX.utils.json_to_sheet(mappingData);
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, "Data Calon Siswa");
+
+            // Generate File Excel dan Unduh ke Storage Lokal
+            XLSX.writeFile(workbook, "Laporan_Database_SPMB_2026.xlsx");
+        }
+
+        // ======================== [ FITUR EKSPOR WORD (.DOCX) ] ========================
+        function eksporKeWord() {
+            // Membuat struktur dokumen berbasis HTML String
+            let htmlContent = `
+                <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+                <head>
+                    <title>Data Laporan SPMB</title>
+                    <style>
+                        body { font-family: 'Arial', sans-serif; }
+                        h2 { text-align: center; font-size: 16pt; text-transform: uppercase; margin-bottom: 5px; }
+                        p.sub { text-align: center; font-size: 10pt; color: #555; margin-top: 0; margin-bottom: 25px; }
+                        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+                        th, td { border: 1px solid #000; padding: 8px; text-align: left; font-size: 10pt; }
+                        th { background-color: #f2f2f2; font-weight: bold; }
+                    </style>
+                </head>
+                <body>
+                    <h2>Laporan Penerimaan Peserta Didik Baru (SPMB)</h2>
+                    <p class="sub">Tanggal Penarikan Dokumen: ${new Date().toLocaleDateString('id-ID')}</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width:10%">No. Peserta</th>
+                                <th style="width:30%">Nama Lengkap</th>
+                                <th style="width:10%">L/P</th>
+                                <th style="width:20%">Sekolah Asal</th>
+                                <th style="width:30%">Alamat Lengkap</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            `;
+
+            databaseSiswa.forEach(s => {
+                htmlContent += `
+                    <tr>
+                        <td style="text-align:center">${s.nopes}</td>
+                        <td><b>${s.nama}</b></td>
+                        <td style="text-align:center">${s.lp}</td>
+                        <td>${s.sekolah}</td>
+                        <td>${s.alamat}</td>
+                    </tr>
+                `;
+            });
+
+            htmlContent += `
+                        </tbody>
+                    </table>
+                </body>
+                </html>
+            `;
+
+            // Membuat Blob khusus bertipe aplikasi MS-Word murni
+            const blob = new Blob(['\ufeff' + htmlContent], { type: 'application/msword' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = "Laporan_Rekap_SPMB.doc"; // Hasil dokumen siap buka di MS Word
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        function switchView(viewName) {
+            const viewDashboard = document.getElementById("view-dashboard");
+            const viewForm = document.getElementById("view-form");
+            if (viewName === 'dashboard') {
+                viewDashboard.classList.remove("hidden");
+                viewForm.classList.add("hidden");
+                document.getElementById("search-input").value = "";
+                renderTabel(databaseSiswa);
+            } else {
+                viewDashboard.classList.add("hidden");
+                viewForm.classList.remove("hidden");
+            }
+        }
+
+        window.onload = initApp;
+    </script>
+</body>
+
+</html>
