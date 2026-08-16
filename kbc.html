@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurikulum Berbasis Cinta</title>
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0d3b66 0%, #11998e 50%, #38ef7d 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #2b2b2b;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            margin: auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            color: #0b5d3b;
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: #555;
+            font-size: 1rem;
+        }
+
+        .pdf-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .pdf-card {
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid #e0e0e0;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            /* transition: transform 0.3s ease, box-shadow 0.3s ease; */
+            /* display: flex;
+            flex-direction: column;
+            gap: 20px; */
+        }
+
+        .pdf-card:hover {
+            /* transform: translateY(-5px); */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .pdf-card-header {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .pdf-card-header h2 {
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+
+        .pdf-body {
+            position: relative;
+            width: 100%;
+            height: 800px;
+            background-color: #f9f9f9;
+            margin-bottom: 20px;
+        }
+
+        .pdf-body iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .pdf-footer {
+            padding: 15px;
+            text-align: center;
+            background: #f8f9fa;
+            border-top: 1px solid #eee;
+            margin-top: auto;
+        }
+
+        .btn-download {
+            display: inline-block;
+            padding: 8px 18px;
+            background: #11998e;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .btn-download:hover {
+            background: #0d736a;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            header h1 {
+                font-size: 1.6rem;
+            }
+
+            .pdf-body {
+                height: 320px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Kurikulum Berbasis Cinta</h1>
+            <p>Tampilan 6 dokumen PDF.</p>
+        </header>
+
+        <!-- PDF Card 1 -->
+        <article class="pdf-card">
+            <div class="pdf-card-header">
+                <h2>Dokumen Laporan A</h2>
+            </div>
+            <div class="pdf-body">
+                <iframe src="kbc/1.pdf" title="Tampilan Dokumen 1"></iframe>
+            </div>
+            <div class="pdf-footer">
+                <a href="kbc/1.pdf" target="_blank" class="btn-download">Buka / Unduh PDF</a>
+            </div>
+        </article> <br>
+
+        <!-- PDF Card 2 -->
+        <article class="pdf-card">
+            <div class="pdf-card-header">
+                <h2>Panduan Penggunaan B</h2>
+            </div>
+            <div class="pdf-body">
+                <iframe src="kbc/2.pdf" title="Tampilan Dokumen 2"></iframe>
+            </div>
+            <div class="pdf-footer">
+                <a href="kbc/2.pdf" target="_blank" class="btn-download">Buka / Unduh PDF</a>
+            </div>
+        </article> <br>
+
+        <!-- PDF Card 3 -->
+        <article class="pdf-card">
+            <div class="pdf-card-header">
+                <h2>Berkas Presentasi C</h2>
+            </div>
+            <div class="pdf-body">
+                <iframe src="kbc/3.pdf" title="Tampilan Dokumen 3"></iframe>
+            </div>
+            <div class="pdf-footer">
+                <a href="kbc/3.pdf" target="_blank" class="btn-download">Buka / Unduh PDF</a>
+            </div>
+        </article> <br>
+
+        <!-- PDF Card 4 -->
+        <article class="pdf-card">
+            <div class="pdf-card-header">
+                <h2>Berkas Presentasi D</h2>
+            </div>
+            <div class="pdf-body">
+                <iframe src="kbc/4.pdf" title="Tampilan Dokumen 4"></iframe>
+            </div>
+            <div class="pdf-footer">
+                <a href="kbc/4.pdf" target="_blank" class="btn-download">Buka / Unduh PDF</a>
+            </div>
+        </article> <br>
+
+        <!-- PDF Card 5 -->
+        <article class="pdf-card">
+            <div class="pdf-card-header">
+                <h2>Berkas Presentasi E</h2>
+            </div>
+            <div class="pdf-body">
+                <iframe src="kbc/5.pdf" title="Tampilan Dokumen 5"></iframe>
+            </div>
+            <div class="pdf-footer">
+                <a href="kbc/5.pdf" target="_blank" class="btn-download">Buka / Unduh PDF</a>
+            </div>
+        </article> <br>
+
+        <!-- PDF Card 6 -->
+        <article class="pdf-card">
+            <div class="pdf-card-header">
+                <h2>Berkas Presentasi F</h2>
+            </div>
+            <div class="pdf-body">
+                <iframe src="kbc/6.pdf" title="Tampilan Dokumen 6"></iframe>
+            </div>
+            <div class="pdf-footer">
+                <a href="kbc/6.pdf" target="_blank" class="btn-download">Buka / Unduh PDF</a>
+            </div>
+        </article>
+
+    </div>
+
+</body>
+
+</html>
